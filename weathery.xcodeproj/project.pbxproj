@@ -14,6 +14,7 @@
 		84C9CFE321B6D9CD004B0F0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C9CFE121B6D9CD004B0F0D /* LaunchScreen.storyboard */; };
 		84C9CFEE21B6D9CD004B0F0D /* weatheryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9CFED21B6D9CD004B0F0D /* weatheryTests.swift */; };
 		84C9CFFA21B85628004B0F0D /* Window+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9CFF921B85628004B0F0D /* Window+Router.swift */; };
+		84C9CFFC21B85C3D004B0F0D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9CFFB21B85C3D004B0F0D /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		84C9CFED21B6D9CD004B0F0D /* weatheryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatheryTests.swift; sourceTree = "<group>"; };
 		84C9CFEF21B6D9CD004B0F0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84C9CFF921B85628004B0F0D /* Window+Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Window+Router.swift"; sourceTree = "<group>"; };
+		84C9CFFB21B85C3D004B0F0D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +81,13 @@
 		84C9CFD721B6D9CB004B0F0D /* weathery */ = {
 			isa = PBXGroup;
 			children = (
+				84C9CFFD21B85EF4004B0F0D /* Scenes */,
 				84C9CFF821B855E7004B0F0D /* Tools */,
 				84C9CFD821B6D9CB004B0F0D /* AppDelegate.swift */,
-				84C9CFDA21B6D9CB004B0F0D /* ViewController.swift */,
-				84C9CFDC21B6D9CB004B0F0D /* Main.storyboard */,
 				84C9CFDF21B6D9CD004B0F0D /* Assets.xcassets */,
 				84C9CFE121B6D9CD004B0F0D /* LaunchScreen.storyboard */,
 				84C9CFE421B6D9CD004B0F0D /* Info.plist */,
+				84C9CFFB21B85C3D004B0F0D /* main.swift */,
 			);
 			path = weathery;
 			sourceTree = "<group>";
@@ -105,6 +107,23 @@
 				84C9CFF921B85628004B0F0D /* Window+Router.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		84C9CFFD21B85EF4004B0F0D /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				84C9CFFE21B85EFC004B0F0D /* Main */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		84C9CFFE21B85EFC004B0F0D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				84C9CFDA21B6D9CB004B0F0D /* ViewController.swift */,
+				84C9CFDC21B6D9CB004B0F0D /* Main.storyboard */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +229,7 @@
 			files = (
 				84C9CFDB21B6D9CB004B0F0D /* ViewController.swift in Sources */,
 				84C9CFFA21B85628004B0F0D /* Window+Router.swift in Sources */,
+				84C9CFFC21B85C3D004B0F0D /* main.swift in Sources */,
 				84C9CFD921B6D9CB004B0F0D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
