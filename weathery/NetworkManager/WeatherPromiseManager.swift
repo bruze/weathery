@@ -18,7 +18,7 @@ final class WeatherPromiseManager: PromiseManager {
     private var reachability = Reachability()
     var networkReachable: Bool = false
     
-    typealias PromiseType = WeatherModel
+    typealias PromiseType = WeatherGroupModel
     
     init() {
         //NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)

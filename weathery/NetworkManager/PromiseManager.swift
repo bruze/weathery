@@ -17,8 +17,10 @@ protocol PromiseManager: NetworkManager {
 
 extension PromiseManager /*where PromiseType == WeatherModel*/ {
     func handlePromise(onSuccess: @escaping (PromiseType) -> (), onError: @escaping (Error) -> ()) {
+        let parameters = NetworkRequestParametersFactory.weatherIn()
         firstly {
-            URLSession.shared.dataTask(.promise, with: try self.makeURLRequest(parameters: NetworkRequestParametersFactory.weatherIn(city: "London"))).validate()
+            URLSession.shared.dataTask(.promise, with: try self.makeURLRequest(parameters:
+                parameters)).validate()
             }.map {
                 try JSONDecoder().decode(PromiseType.self, from: $0.data)
             }.done { foo in
