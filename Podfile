@@ -7,6 +7,7 @@ target 'weathery' do
 
   # Pods for weathery
   pod 'PromiseKit'
+  pod 'ReachabilitySwift'
 
   target 'weatheryTests' do
     inherit! :search_paths

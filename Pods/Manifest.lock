@@ -8,17 +8,21 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.7.0):
     - PromiseKit/CorePromise
+  - ReachabilitySwift (4.3.0)
 
 DEPENDENCIES:
   - PromiseKit
+  - ReachabilitySwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - PromiseKit
+    - ReachabilitySwift
 
 SPEC CHECKSUMS:
   PromiseKit: 453ddcc947fe7b302f3ef41882b81d31c554df7f
+  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
 
-PODFILE CHECKSUM: bd15f733d6c3e3abc1a7bd6621c3fdd27b8c4b46
+PODFILE CHECKSUM: b8f15462cb9d500e3397e79078a5cad3840c4c34
 
 COCOAPODS: 1.5.3

@@ -15,7 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
-        window?.loadController()
+        //window?.loadController()
+        //PromiseManager().test()
+        WeatherPromiseManager().handlePromise(onSuccess: { (weather) in
+            print("HERE COMES THE WEATHER")
+        }) { (error) in
+            print("ERROR")
+        }
         return true
     }
 

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		554875B8FC80482ED5E4EB47 /* Pods_weatheryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 486124D98D34F4FA09AA2EEE /* Pods_weatheryTests.framework */; };
+		84729DD121B88B030090ADF9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84729DD021B88B030090ADF9 /* NetworkManager.swift */; };
+		84729DD321B88BE20090ADF9 /* PromiseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84729DD221B88BE20090ADF9 /* PromiseManager.swift */; };
+		84729DD621B8C96C0090ADF9 /* NetworkRequestParametersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84729DD521B8C96C0090ADF9 /* NetworkRequestParametersFactory.swift */; };
+		84729DD821B8CB1B0090ADF9 /* Bundle+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84729DD721B8CB1B0090ADF9 /* Bundle+Keys.swift */; };
+		84729DDB21B8D15C0090ADF9 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84729DDA21B8D15C0090ADF9 /* WeatherModel.swift */; };
+		84729DDD21B933040090ADF9 /* WeatherPromiseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84729DDC21B933040090ADF9 /* WeatherPromiseManager.swift */; };
 		84C9CFD921B6D9CB004B0F0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9CFD821B6D9CB004B0F0D /* AppDelegate.swift */; };
 		84C9CFDB21B6D9CB004B0F0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9CFDA21B6D9CB004B0F0D /* ViewController.swift */; };
 		84C9CFDE21B6D9CB004B0F0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C9CFDC21B6D9CB004B0F0D /* Main.storyboard */; };
@@ -33,6 +39,12 @@
 		25F29EC784E256D352EF04F8 /* Pods-weatheryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatheryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weatheryTests/Pods-weatheryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		486124D98D34F4FA09AA2EEE /* Pods_weatheryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weatheryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DBCD3F183523A76A8DD723E /* Pods_weathery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weathery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84729DD021B88B030090ADF9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		84729DD221B88BE20090ADF9 /* PromiseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseManager.swift; sourceTree = "<group>"; };
+		84729DD521B8C96C0090ADF9 /* NetworkRequestParametersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestParametersFactory.swift; sourceTree = "<group>"; };
+		84729DD721B8CB1B0090ADF9 /* Bundle+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Keys.swift"; sourceTree = "<group>"; };
+		84729DDA21B8D15C0090ADF9 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		84729DDC21B933040090ADF9 /* WeatherPromiseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPromiseManager.swift; sourceTree = "<group>"; };
 		84C9CFD521B6D9CB004B0F0D /* weathery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weathery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C9CFD821B6D9CB004B0F0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84C9CFDA21B6D9CB004B0F0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +93,32 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		84729DCF21B88AE80090ADF9 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				84729DD021B88B030090ADF9 /* NetworkManager.swift */,
+				84729DD221B88BE20090ADF9 /* PromiseManager.swift */,
+				84729DDC21B933040090ADF9 /* WeatherPromiseManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		84729DD421B8C94E0090ADF9 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				84729DD521B8C96C0090ADF9 /* NetworkRequestParametersFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		84729DD921B8D14A0090ADF9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84729DDA21B8D15C0090ADF9 /* WeatherModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		84C9CFCC21B6D9CB004B0F0D = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +142,9 @@
 		84C9CFD721B6D9CB004B0F0D /* weathery */ = {
 			isa = PBXGroup;
 			children = (
+				84729DD921B8D14A0090ADF9 /* Model */,
+				84729DD421B8C94E0090ADF9 /* Factory */,
+				84729DCF21B88AE80090ADF9 /* NetworkManager */,
 				84C9CFFD21B85EF4004B0F0D /* Scenes */,
 				84C9CFF821B855E7004B0F0D /* Tools */,
 				84C9CFD821B6D9CB004B0F0D /* AppDelegate.swift */,
@@ -128,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				84C9CFF921B85628004B0F0D /* Window+Router.swift */,
+				84729DD721B8CB1B0090ADF9 /* Bundle+Keys.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -268,12 +310,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-weathery/Pods-weathery-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -333,8 +377,14 @@
 			files = (
 				84C9CFDB21B6D9CB004B0F0D /* ViewController.swift in Sources */,
 				84C9CFFA21B85628004B0F0D /* Window+Router.swift in Sources */,
+				84729DDD21B933040090ADF9 /* WeatherPromiseManager.swift in Sources */,
+				84729DD121B88B030090ADF9 /* NetworkManager.swift in Sources */,
 				84C9CFFC21B85C3D004B0F0D /* main.swift in Sources */,
+				84729DDB21B8D15C0090ADF9 /* WeatherModel.swift in Sources */,
 				84C9CFD921B6D9CB004B0F0D /* AppDelegate.swift in Sources */,
+				84729DD821B8CB1B0090ADF9 /* Bundle+Keys.swift in Sources */,
+				84729DD621B8C96C0090ADF9 /* NetworkRequestParametersFactory.swift in Sources */,
+				84729DD321B88BE20090ADF9 /* PromiseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
