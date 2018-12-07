@@ -8,28 +8,30 @@
 
 import Foundation
 import Reachability
+import PromiseKit
 
 enum RequestError: Error {
     case NetworkUnreachable
+    case DataParsingIssue
 }
 
-final class WeatherPromiseManager: PromiseManager {
-    var baseURL: String { return Bundle.mainInfoValue(for: "baseURL") }
+final class WeatherPromiseManager: NSObject, NetworkManager {
     private var reachability = Reachability()
     var networkReachable: Bool = false
-    
-    typealias PromiseType = WeatherGroupModel
-    
-    init() {
-        //NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
-        //do{
-            //try reachability?.startNotifier()
+    private(set) var citiesForecast = [WeatherModel]()
+    private(set) var forecastAtLocation: WeatherModel?
+
+    override init() {
+        super.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+        do{
+            try reachability?.startNotifier()
             if let reachability = reachability {
                 self.networkReachable = reachability.connection != .none
             }
-        /*}catch{
+        }catch{
             print("Could not start reachability notifier")
-        }*/
+        }
     }
     
     @objc func reachabilityChanged(note: Notification) {
@@ -43,15 +45,26 @@ final class WeatherPromiseManager: PromiseManager {
         }
     }
     
-    func makeURLRequest(parameters: NetworkRequestParameters) throws -> URLRequest {
-        guard self.networkReachable else {
-            throw RequestError.NetworkUnreachable
+    func handlePromise<P>(forRequest parameters: NetworkRequestParameters, onSuccess: @escaping (P) -> (), onError: @escaping (Error) -> ()) where P : Codable {
+        firstly {
+            URLSession.shared.dataTask(.promise, with: try self.makeURLRequest(parameters:
+                parameters)).validate()
+            }.map {
+                try JSONDecoder().decode(P.self, from: $0.data)
+            }.done { model in
+                self.didReceiveData(model: model)
+                onSuccess(model)
+            }.catch { error in
+                onError(error)
         }
-        let url = URL(string: "\(self.baseURL + parameters.endpoint)?\(parameters.parameters)")
-        var request = URLRequest(url: url!)
-        request.httpBody = nil
-        request.httpMethod = parameters.method
-        request.allHTTPHeaderFields = ["Content-Type": "application/json", "Accept": "application/json"]
-        return request
+    }
+    
+    func didReceiveData<P>(model: P) where P : Codable {
+        if let model = model as? WeatherModel {
+            self.forecastAtLocation = model
+        } else if let model = model as? WeatherGroupModel {
+            self.citiesForecast.append(contentsOf: model.list)
+        }
     }
 }
+

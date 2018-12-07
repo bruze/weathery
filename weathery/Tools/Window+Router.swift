@@ -8,10 +8,14 @@
 
 import UIKit
 extension UIWindow {
-    func loadController() {
+    func loadController(networkManager: WeatherPromiseManager) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-        self.rootViewController = storyboard.instantiateInitialViewController()
+        guard let mainViewController = storyboard.instantiateInitialViewController() as? ViewController else {
+            print("Couldn't instantiate MainViewController")
+            return
+        }
+        mainViewController.networkManager = networkManager
+        self.rootViewController = mainViewController
         self.makeKeyAndVisible()
     }
 }

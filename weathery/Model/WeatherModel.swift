@@ -12,7 +12,7 @@ struct WeatherModel: Codable {
     let weather: [weather]
     let base: String?
     let main: main
-    let visibility: Int
+    let visibility: Int?
     let wind: wind
     let clouds: clouds
     let dt: Int
@@ -33,21 +33,21 @@ struct WeatherModel: Codable {
     }
     struct main: Codable {
         let temp: Double
-        let pressure: Int
+        let pressure: Double
         let humidity: Int
         let temp_min: Double
         let temp_max: Double
     }
     struct wind: Codable {
         let speed: Double
-        let deg: Int
+        let deg: Double
     }
     struct clouds: Codable {
         let all: Int
     }
     struct sys: Codable {
-        let type: Int
-        let id: Int
+        let type: Int?
+        let id: Int?
         let message: Double
         let country: String
         let sunrise: Int

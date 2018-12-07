@@ -17,22 +17,22 @@ struct NetworkRequestParameters {
 
 protocol NetworkManager {
     var baseURL: String { get }
-    //var reachability: Reachability? { get set }
-
+    var networkReachable: Bool { get set }
     func makeURLRequest(parameters: NetworkRequestParameters) throws -> URLRequest
 }
 
-/*extension NetworkManager {
-    func makeURLRequest(parameters: NetworkRequestParameters) /*throws*/ -> URLRequest {
-        /*guard let reachability = self.reachability else {
-            throw
-        }*/
-        let url = URL(string: "\(self.baseURL + parameters.endpoint)?\(parameters.parameters)")
+extension NetworkManager {
+    var baseURL: String { return Bundle.mainInfoValue(for: "baseURL") }
+    
+    func makeURLRequest(parameters: NetworkRequestParameters) throws -> URLRequest {
+        guard self.networkReachable else {
+            throw RequestError.NetworkUnreachable
+        }
+        let url = URL(string: "\(self.baseURL + parameters.endpoint)\(parameters.parameters)")
         var request = URLRequest(url: url!)
         request.httpBody = nil
         request.httpMethod = parameters.method
         request.allHTTPHeaderFields = ["Content-Type": "application/json", "Accept": "application/json"]
         return request
     }
-}*/
-
+}
