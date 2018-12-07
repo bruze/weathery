@@ -26,4 +26,20 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height / 2
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let sections = tableView.numberOfSections
+        switch (sections, section) {
+        case (1, _), (2, 1):
+            return "TOP CITIES".localized
+        case (2, 0):
+            return "AT CURRENT LOCATION".localized
+        default:
+            return ""
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return tableView.frame.size.height * 0.1
+    }
 }

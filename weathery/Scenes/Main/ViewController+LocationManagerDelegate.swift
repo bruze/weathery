@@ -7,6 +7,8 @@
 //
 
 import CoreLocation
+import UIKit
+
 extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
@@ -23,11 +25,13 @@ extension ViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let lastValue = locations.last {
-            let coordinates = (Int(lastValue.coordinate.latitude.magnitude), Int(lastValue.coordinate.longitude.magnitude))
+            let coordinates = (Int(lastValue.coordinate.latitude), Int(lastValue.coordinate.longitude))
             self.networkManager?.handlePromise(forRequest: NetworkRequestParametersFactory.weatherAt(coordinates: coordinates), onSuccess: { (weatherModel: WeatherModel) in
+                self.table.isHidden = false
                 self.table.reloadData()
+                manager.stopUpdatingLocation()
             }, onError: { (error) in
-                print()
+                print("ERROR: Couldn't retrieve data for location")
             })
         }
     }

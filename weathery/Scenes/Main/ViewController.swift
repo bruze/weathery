@@ -18,12 +18,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
-        let weatherCell = UINib(nibName: "WeatherCell", bundle: nil)
-        self.table.register(weatherCell, forCellReuseIdentifier: "WeatherCell")
-        self.table.allowsSelection = false
+        self.fetchWeatherInCities()
+        self.configUI()
     }
 
-    func setup() {
+    private func setup() {
+        self.setupLocalization()
+    }
+
+    private func setupLocalization() {
         self.locationManager.delegate = self
         switch CLLocationManager.authorizationStatus() {
         case .notDetermined:
@@ -37,15 +40,24 @@ class ViewController: UIViewController {
         default:
             break
         }
-        
-        networkManager?.handlePromise(forRequest: NetworkRequestParametersFactory.weatherIn(), onSuccess: { (weather: WeatherGroupModel) in
+    }
+    
+    private func fetchWeatherInCities() {
+        networkManager?.handlePromise(forRequest: NetworkRequestParametersFactory.weatherInCities(), onSuccess: { (weather: WeatherGroupModel) in
+            self.table.isHidden = false
             self.table.reloadData()
         }, onError: { (error) in
-            print("ERROR")
+            print("ERROR: Couldn't retrieve data for cities")
         })
     }
-
-    func forecastsCount(at section: Int) -> Int {
+    
+    private func configUI() {
+        let weatherCell = UINib(nibName: "WeatherCell", bundle: nil)
+        self.table.register(weatherCell, forCellReuseIdentifier: "WeatherCell")
+        self.table.allowsSelection = false
+    }
+    
+    internal func forecastsCount(at section: Int) -> Int {
         let citiesForecastCount = self.networkManager?.citiesForecast.count
         switch (self.networkManager?.forecastAtLocation, section) {
         case (nil, _):
@@ -57,7 +69,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func forecastAt(index: IndexPath) -> WeatherModel? {
+    internal func forecastAt(index: IndexPath) -> WeatherModel? {
         switch (self.networkManager?.forecastAtLocation, index.section) {
         case (nil, _), (_, 1):
             return self.networkManager?.citiesForecast[index.row]

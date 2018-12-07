@@ -12,6 +12,12 @@ final class WeatherCell: UITableViewCell {
     @IBOutlet var icon: UIImageView!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var currentTemperature: UILabel!
+    @IBOutlet var minTemperature: UILabel!
+    @IBOutlet var maxTemperature: UILabel!
+    @IBOutlet var wind: UILabel!
+    @IBOutlet var pressure: UILabel!
+    @IBOutlet var humidity: UILabel!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

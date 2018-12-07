@@ -26,6 +26,17 @@ struct WeatherCellFactory {
         }
     }
     
+    private static func format(name: String) -> String {
+        switch name {
+        case "Departamento de Montevideo":
+            return "Montevideo"
+        case "Landkreis München":
+            return "Münich"
+        default:
+            return name
+        }
+    }
+    
     static func weatherCell(from table: UITableView, using model: WeatherModel) -> WeatherCell? {
         guard let cell = table.dequeueReusableCell(withIdentifier: "WeatherCell") as? WeatherCell else {
             return nil
@@ -33,15 +44,26 @@ struct WeatherCellFactory {
         if let firstWeather = model.weather.first {
             let firstIcon = firstWeather.icon
             let iconFetcher = IconPromiseManager()
-            iconFetcher.getIcon(for: firstIcon, onSuccess: { (icon) in
-                cell.icon.image = icon
-            }) { (error) in
-                print()
+            let backgroundQueue = DispatchQueue.init(label: "background", qos: .background)
+            backgroundQueue.async {
+                iconFetcher.getIcon(for: firstIcon, onSuccess: { (icon) in
+                    DispatchQueue.main.async {
+                        cell.icon.image = icon
+                    }
+                }) { (error) in
+                    print()
+                }
             }
             cell.descriptionLabel.text = firstWeather.description.capitalizeFirst()
         }
-        cell.locationLabel.text = model.name
+        cell.locationLabel.text = format(name: model.name)
         cell.background.image = background(for: model.name)
+        cell.currentTemperature.text = model.main.temp.displayAsTemperature()
+        cell.minTemperature.text = model.main.temp_min.displayAsMinTemperature()
+        cell.maxTemperature.text = model.main.temp_max.displayAsMaxTemperature()
+        cell.wind.text = model.wind.speed.displayAsSpeed()
+        cell.pressure.text = model.main.pressure.displayAsPressure()
+        cell.humidity.text = model.main.humidity.displayAsHumidity()
         return cell
     }
 }

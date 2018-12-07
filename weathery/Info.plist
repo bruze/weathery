@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We provide a better experience</string>
+	<string>We use it to improve your experience</string>
 	<key>apiKey</key>
 	<string>c7295c22353b8193276a7ccd46adf918</string>
 	<key>baseURL</key>

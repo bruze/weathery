@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  weathery
+
+  Created by bruze on 12/7/18.
+  Copyright © 2018 bruze. All rights reserved.
+*/
+"TOP CITIES" = "TOP CITIES";
+"AT CURRENT LOCATION" = "AT CURRENT LOCATION";
+"Pressure: " = "Pressure: ";
+"Humidity: " = "Humidity: ";
