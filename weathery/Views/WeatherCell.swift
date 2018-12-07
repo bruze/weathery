@@ -8,6 +8,11 @@
 
 import UIKit
 final class WeatherCell: UITableViewCell {
+    @IBOutlet var background: UIImageView!
+    @IBOutlet var icon: UIImageView!
+    @IBOutlet var locationLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }

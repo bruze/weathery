@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         self.setup()
         let weatherCell = UINib(nibName: "WeatherCell", bundle: nil)
         self.table.register(weatherCell, forCellReuseIdentifier: "WeatherCell")
+        self.table.allowsSelection = false
     }
 
     func setup() {

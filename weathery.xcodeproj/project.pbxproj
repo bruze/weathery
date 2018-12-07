@@ -20,6 +20,7 @@
 		84729DEB21B97FED0090ADF9 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84729DEA21B97FED0090ADF9 /* WeatherCell.swift */; };
 		84729DED21B986D70090ADF9 /* ViewController+LocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84729DEC21B986D70090ADF9 /* ViewController+LocationManagerDelegate.swift */; };
 		84729DF321BAA4C70090ADF9 /* IconPromiseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84729DF221BAA4C70090ADF9 /* IconPromiseManager.swift */; };
+		84729DF521BAFF010090ADF9 /* String+Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84729DF421BAFF010090ADF9 /* String+Tools.swift */; };
 		84C9CFD921B6D9CB004B0F0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9CFD821B6D9CB004B0F0D /* AppDelegate.swift */; };
 		84C9CFDB21B6D9CB004B0F0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C9CFDA21B6D9CB004B0F0D /* ViewController.swift */; };
 		84C9CFDE21B6D9CB004B0F0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C9CFDC21B6D9CB004B0F0D /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 		84729DEA21B97FED0090ADF9 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		84729DEC21B986D70090ADF9 /* ViewController+LocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+LocationManagerDelegate.swift"; sourceTree = "<group>"; };
 		84729DF221BAA4C70090ADF9 /* IconPromiseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPromiseManager.swift; sourceTree = "<group>"; };
+		84729DF421BAFF010090ADF9 /* String+Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Tools.swift"; sourceTree = "<group>"; };
 		84C9CFD521B6D9CB004B0F0D /* weathery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weathery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C9CFD821B6D9CB004B0F0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84C9CFDA21B6D9CB004B0F0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				84C9CFF921B85628004B0F0D /* Window+Router.swift */,
 				84729DD721B8CB1B0090ADF9 /* Bundle+Keys.swift */,
+				84729DF421BAFF010090ADF9 /* String+Tools.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84729DF521BAFF010090ADF9 /* String+Tools.swift in Sources */,
 				84729DE621B97F8D0090ADF9 /* WeatherCellFactory.swift in Sources */,
 				84729DED21B986D70090ADF9 /* ViewController+LocationManagerDelegate.swift in Sources */,
 				84C9CFDB21B6D9CB004B0F0D /* ViewController.swift in Sources */,
